@@ -14,10 +14,10 @@ app.get("/", (req, res) => {
 });
 
 //port
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 9090;
 
 //listen
-app.listen(3000, () => {
+app.listen(9090, () => {
   console.log(
     `Node server running In ${process.env.DEV_MODE} Mode on port no ${PORT}`
   );
