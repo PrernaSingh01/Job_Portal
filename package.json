@@ -2,7 +2,8 @@
   "name": "job_portal",
   "version": "1.0.0",
   "description": "Jop Portal Project",
-  "main": "index.js",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js"
