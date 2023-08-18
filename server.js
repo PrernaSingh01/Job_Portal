@@ -3,6 +3,7 @@ import express from "express";
 import dotenv from "dotenv";
 import colors from "colors";
 import connecDB from "./config/db.js";
+import testRoutes from "./routes/testRoutes.js";
 
 //Dot ENV config
 dotenv.config();
@@ -14,9 +15,7 @@ connecDB();
 const app = express();
 
 //routes
-app.get("/", (req, res) => {
-  res.send("<h1> Hello <h1>");
-});
+app.use("/api/v1/test", testRoutes);
 
 //port
 const PORT = process.env.PORT || 9090;
