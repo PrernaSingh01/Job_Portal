@@ -14,9 +14,11 @@ app.get("/", (req, res) => {
 });
 
 //port
-Const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 //listen
 app.listen(3000, () => {
-  console.log("Server is running");
+  console.log(
+    `Node server running In ${process.env.DEV_MODE} Mode on port no ${PORT}`
+  );
 });
