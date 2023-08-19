@@ -7,7 +7,10 @@ import morgan from "morgan";
 
 //files import
 import connecDB from "./config/db.js";
+
+//routes import
 import testRoutes from "./routes/testRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 
 //Dot ENV config
 dotenv.config();
@@ -25,6 +28,7 @@ app.use(morgan("dev"));
 
 //routes
 app.use("/api/v1/test", testRoutes);
+app.use("/api/v1/auth", authRoutes);
 
 //port
 const PORT = process.env.PORT || 9090;
