@@ -15,10 +15,10 @@ const errorMiddleware = (err, req, res, next) => {
       .join(",");
   }
   //duplicate error
-  if (err.code && err.code === 11000)
-    res
-      .status(defaultErrors.statusCode)
-      .json({ message: defaultErrors.message });
+  if (err.code && err.code === 11000) {
+    defaultErrors.statusCode = 400;
+  }
+  res.status(defaultErrors.statusCode).json({ message: defaultErrors.message });
 };
 
 export default errorMiddleware;
