@@ -39,7 +39,9 @@ userSchema.pre("save", async function () {
 
 //JSON WEBTOKEN
 userSchema.methods.createJWT = function () {
-  return JWT.sign({ userId: this._id });
+  return JWT.sign({ userId: this._id }, process.env.JWT_SECRET, {
+    expiresIn: "1d",
+  });
 };
 
 export default mongoose.model("User", userSchema);
