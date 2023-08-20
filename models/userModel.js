@@ -15,13 +15,15 @@ const userSchema = new mongoose.Schema(
     },
     email: {
       type: String,
-      require: [true, "Email is require"],
+      required: [true, "Email is require"],
       unique: true,
       validate: validator.isEmail,
     },
     password: {
       type: String,
-      require: [true, "Password is require"],
+      required: [true, "Password is require"],
+      minlength: [6, "password length should be greater than 6 character"],
+      select: true,
     },
     location: {
       type: String,
