@@ -13,6 +13,7 @@ import connecDB from "./config/db.js";
 import testRoutes from "./routes/testRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import errorMiddleware from "./middlewares/errorMiddleware.js";
+import userRoutes from "./routes/userRoutes.js";
 
 //Dot ENV config
 dotenv.config();
