@@ -8,6 +8,6 @@ const router = express.Router();
 //Get Users || GET
 
 //UPDATE USER || PUT
-router.put("/update-user", userAuth);
+router.put("/update-user", userAuth, updateUserController);
 
 export default router;
