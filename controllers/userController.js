@@ -10,4 +10,8 @@ export const updateUserController = async (req, res, next) => {
 
   await user.save();
   const token = user.createJWT();
+  res.status(200).json({
+    user,
+    token,
+  });
 };
