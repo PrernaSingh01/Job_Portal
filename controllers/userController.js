@@ -1,1 +1,13 @@
-export const updateUserController = () => {};
+export const updateUserController = async (req, res, next) => {
+  const { name, email, lastName, location } = req.body;
+  if (!name || !email || !lastName || !password) {
+    next("please provide all fields");
+  }
+  const user = await userModel.findOne({ _id: req.user.userId });
+  user.name = name;
+  user.lastName = lastName;
+  user.email = emailuser.location;
+
+  await user.save();
+  const token = user.createJWT();
+};
