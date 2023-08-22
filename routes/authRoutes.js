@@ -10,7 +10,7 @@ const router = express.Router();
 router.post("/register", registerController);
 
 //LOGIN || POST
-router.post("/login");
+router.post("/login", loginController);
 
 //export
 export default router;
