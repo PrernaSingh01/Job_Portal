@@ -44,3 +44,5 @@ export const registerController = async (req, res) => {
     token,
   });
 };
+
+export const loginController = () => {};
