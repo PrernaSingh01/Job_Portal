@@ -54,7 +54,7 @@ export const loginController = async (req, res) => {
   }
 
   //find user by email
-  const user = await userModel.findOne({ email });
+  const user = await userModel.findOne({ email }).select("+password");
   if (!user) {
     next("Invalid Username or Password");
   }
@@ -64,6 +64,7 @@ export const loginController = async (req, res) => {
   if (!isMatch) {
     next("Invalid Username or Password");
   }
+  user.password = undefined;
   const token = user.createJWT();
   res.status(200).json({
     success: true,
