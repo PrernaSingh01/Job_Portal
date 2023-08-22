@@ -45,4 +45,17 @@ export const registerController = async (req, res) => {
   });
 };
 
-export const loginController = () => {};
+export const loginController = async (req, res) => {
+  const { email, password } = req.body;
+  //validation
+
+  if (!email || !password) {
+    next("Please Provide all fields");
+  }
+
+  //find user by email
+  const user = await userModel.findOne({ email });
+  if (!user) {
+    next("Invalid Username or Password");
+  }
+};
