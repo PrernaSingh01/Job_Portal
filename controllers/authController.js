@@ -50,7 +50,7 @@ export const loginController = async (req, res) => {
   //validation
 
   if (!email || !password) {
-    next("Please Provide all fields");
+    throw new Error("Please Provide all fields");
   }
 
   //find user by email

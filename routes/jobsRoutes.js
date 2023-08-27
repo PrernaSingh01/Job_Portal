@@ -1,10 +1,17 @@
 import express from "express";
-import { createJobController } from "../controllers/jobsController.js";
+import {
+  createJobController,
+  getAllJobsController,
+} from "../controllers/jobsController.js";
+import userAuth from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
 //routes
 //CREATE JOB || POST
 router.post("/create-job", userAuth, createJobController);
+
+//GET JOBS || GET
+router.get("/get-jobs", userAuth, getAllJobsController);
 
 export default router;
