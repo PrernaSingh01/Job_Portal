@@ -1,8 +1,5 @@
 import mongoose from "mongoose";
 
+const jobSchema = new mongoose.Schema({});
 
-const jobSchema = new mongoose.Schema({
-
-})
-
-export default
+export default mongoose.model("job", jobSchema);
