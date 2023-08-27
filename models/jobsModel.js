@@ -10,7 +10,12 @@ const jobSchema = new mongoose.Schema({
     required: [true, "Job position is required"],
   },
   status: {
-    required: ["pending", "reject", "interview"],
+    type: String,
+    enum: ["pending", "reject", "interview"],
+    default: "pending",
+  },
+  workType: {
+    type,
   },
 });
 
