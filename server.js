@@ -13,6 +13,7 @@ import connecDB from "./config/db.js";
 import testRoutes from "./routes/testRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import errorMiddleware from "./middlewares/errorMiddleware.js";
+import jobRoutes from "./routes/jobsRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 
 //Dot ENV config
@@ -33,6 +34,7 @@ app.use(morgan("dev"));
 app.use("/api/v1/test", testRoutes);
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/user", userRoutes);
+app.use("/api/v1/job", jobRoutes);
 
 //port
 const PORT = process.env.PORT || 9090;
