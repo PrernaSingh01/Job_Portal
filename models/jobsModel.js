@@ -9,7 +9,7 @@ const jobSchema = new mongoose.Schema({
     type:String,
     required:[true, 'Job position is required'],
   },{
-
+      required:['pending', 'reject' , 'interview']
   }
 });
 
