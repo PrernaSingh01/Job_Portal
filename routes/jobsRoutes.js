@@ -2,6 +2,7 @@ import express from "express";
 import {
   createJobController,
   getAllJobsController,
+  updateJobController,
 } from "../controllers/jobsController.js";
 import userAuth from "../middlewares/authMiddleware.js";
 
@@ -14,4 +15,6 @@ router.post("/create-job", userAuth, createJobController);
 //GET JOBS || GET
 router.get("/get-jobs", userAuth, getAllJobsController);
 
+//UPDATE JOBS || PUT || PATCH
+router.patch("/update-job/:id", userAuth, updateJobController);
 export default router;
