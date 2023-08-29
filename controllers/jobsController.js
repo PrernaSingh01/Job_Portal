@@ -45,4 +45,7 @@ export const updateJobController = async (req, res, next) => {
     new: true,
     runValidators: true,
   });
+
+  //res
+  res.status(200).json({ updateJob });
 };
