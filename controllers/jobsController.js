@@ -21,4 +21,6 @@ export const getAllJobsController = async (req, res, next) => {
 };
 
 //=======UPDATE JOBS ========
-export const updateJobController = () => {};
+export const updateJobController = async (req, res, next) => {
+  const { id } = req.params;
+};
