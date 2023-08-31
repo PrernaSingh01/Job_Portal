@@ -1,6 +1,7 @@
 import express from "express";
 import {
   createJobController,
+  deleteJobController,
   getAllJobsController,
   updateJobController,
 } from "../controllers/jobsController.js";
@@ -22,6 +23,6 @@ router.patch("/update-job/:id", userAuth, updateJobController);
 router.delete("/delete-job/:id", userAuth);
 
 //JOBS STATS FILTER || GET
-router.get("/job-stats", userAuth);
+router.get("/job-stats", userAuth, deleteJobController);
 
 export default router;
