@@ -17,4 +17,8 @@ router.get("/get-jobs", userAuth, getAllJobsController);
 
 //UPDATE JOBS || PUT || PATCH
 router.patch("/update-job/:id", userAuth, updateJobController);
+
+//DELETE JOBS || DELETE
+router.delete("/delete-job/:id", userAuth);
+
 export default router;
