@@ -131,20 +131,33 @@ export const jobStatsController = async (req, res) => {
     },
   ]);
 
-  monthlyApplication = monthlyApplication
-    .map((item) => {
-      const {
-        _id: { year, month },
-        count,
-      } = item;
-      const date = moment()
-        .month(month - 1)
-        .year(year)
-        .format("MMM Y");
-      return { date, count };
-    })
-    .reverse();
+  // Initialize monthlyApplication as an empty array
+  let monthlyApplication = [];
+
+  if (stats.length > 0) {
+    monthlyApplication = stats
+      .map((item) => {
+        const {
+          _id: { year, month },
+          count,
+        } = item;
+        const date = moment()
+          .month(month - 1)
+          .year(year)
+          .format("MMM Y");
+        return { date, count };
+      })
+      .reverse();
+  }
+
+  //default stats
+  const defaultStats = {
+    pending: stats.pending || 0,
+    reject: stats.reject || 0,
+    interview: stats.interview || 0,
+  };
+
   res
     .status(200)
-    .json({ totlaJob: stats.length, defaultStats, monthlyApplication });
+    .json({ totalJob: stats.length, defaultStats, monthlyApplication });
 };
