@@ -3,6 +3,7 @@ import {
   createJobController,
   deleteJobController,
   getAllJobsController,
+  jobStatsController,
   updateJobController,
 } from "../controllers/jobsController.js";
 import userAuth from "../middlewares/authMiddleware.js";
@@ -23,6 +24,6 @@ router.patch("/update-job/:id", userAuth, updateJobController);
 router.delete("/delete-job/:id", userAuth);
 
 //JOBS STATS FILTER || GET
-router.get("/job-stats", userAuth, deleteJobController);
+router.get("/job-stats", userAuth, jobStatsController);
 
 export default router;
