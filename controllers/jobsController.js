@@ -1,5 +1,6 @@
 import jobsModel from "../models/jobsModel.js";
 import moment from "moment";
+import mongoose from "mongoose";
 
 //====== CREATE JOB ======
 export const createJobController = async (req, res, next) => {
@@ -81,8 +82,13 @@ export const jobStatsController = async (req, res) => {
       },
       {
         $group: {
-          _id: "$status",
-          count: { $sum: 1 },
+          _id: {
+            year: { $year: "$createdAt" },
+            month: { $month: "$createdAt" },
+          },
+          count: {
+            $sum: 1,
+          },
         },
       },
     ]);
