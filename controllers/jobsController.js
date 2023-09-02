@@ -1,6 +1,6 @@
 import jobsModel from "../models/jobsModel.js";
 import mongoose from "mongoose";
-import moment from "moment";
+import moment from "moment/moment.js";
 
 // ====== CREATE JOB ======
 export const createJobController = async (req, res, next) => {
@@ -120,28 +120,6 @@ export const jobStatsController = async (req, res) => {
     },
     {
       $group: {
-        _id: "$status",
-        count: { $sum: 1 },
-      },
-    },
-  ]);
-
-  //default stats
-  const defaultStats = {
-    pending: stats.pending || 0,
-    reject: stats.reject || 0,
-    interview: stats.interview || 0,
-  };
-
-  //monthly yearly stats
-  let monthlyApplication = await jobsModel.aggregate([
-    {
-      $match: {
-        createdBy: new mongoose.Types.ObjectId(req.user.userId),
-      },
-    },
-    {
-      $group: {
         _id: {
           year: { $year: "$createdAt" },
           month: { $month: "$createdAt" },
@@ -152,6 +130,7 @@ export const jobStatsController = async (req, res) => {
       },
     },
   ]);
+
   monthlyApplication = monthlyApplication
     .map((item) => {
       const {
